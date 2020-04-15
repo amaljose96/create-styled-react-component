@@ -7,7 +7,7 @@ const filesToCreate = ["index.js", "styles.js", "__tests__/$ComponentName$.js"];
 
 function createComponentFromCommand() {
   if (!vscode.window.activeTextEditor) {
-    console.error("No Window Open");
+    vscode.window.showErrorMessage("You dont have an active editor window open");
     return;
   }
   let currentFileName = vscode.window.activeTextEditor.document.fileName;
@@ -28,21 +28,27 @@ function createComponent(baseDirectory) {
     })
     .then((componentName) => {
       if(!componentName){
+        vscode.window.showWarningMessage("Component Creation Cancelled by User.")
         return ;
       }
       componentName = prettifyComponentName(componentName);
       let componentDirectory = baseDirectory + "/" + componentName;
-      fs.mkdirSync(componentDirectory);
-      fs.mkdirSync(componentDirectory + "/__tests__");
-      filesToCreate.forEach((fileName) => {
-        var contents = require("./contents/" + fileName);
-        let createdFileName = componentDirectory + "/" + fileName;
-        contents = contents.split("$ComponentName$").join(componentName);
-        createdFileName = createdFileName
-          .split("$ComponentName$")
-          .join(componentName);
-        fs.writeFileSync(createdFileName, contents);
-      });
+      try{
+        fs.mkdirSync(componentDirectory);
+        fs.mkdirSync(componentDirectory + "/__tests__");
+        filesToCreate.forEach((fileName) => {
+          var contents = require("./contents/" + fileName);
+          let createdFileName = componentDirectory + "/" + fileName;
+          contents = contents.split("$ComponentName$").join(componentName);
+          createdFileName = createdFileName
+            .split("$ComponentName$")
+            .join(componentName);
+          fs.writeFileSync(createdFileName, contents);
+        });
+      }catch(e){
+        vscode.window.showErrorMessage("File Operations Failed",e)
+      }
+      
     });
 }
 

@@ -3,6 +3,8 @@
   "displayName": "Create Styled React Component",
   "description": "",
   "author": "Amal Jose",
+  "publisher": "amaljose96",
+  "repository": "https://github.com/amaljose96/create-styled-react-component",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.44.0"
@@ -24,8 +26,8 @@
     "menus": {
       "explorer/context": [
         {
-		  "command": "create-styled-react-component.createComponent",
-		  "group": "navigation"
+          "command": "create-styled-react-component.createComponent",
+          "group": "navigation"
         }
       ]
     }

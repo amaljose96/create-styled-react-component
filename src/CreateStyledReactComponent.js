@@ -3,7 +3,7 @@ var path = require("path");
 var fs = require("fs");
 const prettifyComponentName = require("./utils/prettifyComponentName");
 const validateComponentName = require("./utils/validateComponentName");
-const filesToCreate = ["index.js", "styles.js", "__tests__/$ComponentName$.js"];
+const filesToCreate = ["index.js", "styles.js", "__tests__/$ComponentName$.test.js"];
 
 function createComponentFromCommand() {
   if (!vscode.window.activeTextEditor) {
@@ -47,6 +47,7 @@ function createComponent(baseDirectory) {
         });
       }catch(e){
         vscode.window.showErrorMessage("File Operations Failed",e)
+        console.error("File Operations Failed",e);
       }
       
     });

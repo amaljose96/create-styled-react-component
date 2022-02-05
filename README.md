@@ -1,6 +1,7 @@
 # create-styled-react-component README
 
 A shortcut for React Developers to quickly build components.
+Marketplace: https://marketplace.visualstudio.com/items?itemName=amaljose96.create-styled-react-component
 
 ## Features
 

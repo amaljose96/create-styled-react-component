@@ -1,0 +1,24 @@
+{
+    "SimpleStyledJS":{
+      "files":["index.js", "styles.js"],
+      "directories":{
+        "__tests__": {
+          "files":["$ComponentName$.test.js"],
+          "directories":{
+            "__mocks__":{
+              "files":[]
+            }
+          }
+        }
+      }
+    },
+    "SimpleStyledTS":{
+        "files":["index.tsx", "styles.ts","index.test.tsx"]
+      },
+      "SimpleEmotionTS":{
+        "files":["index.test.tsx","index.tsx","styles.ts","utils.ts","utils.test.ts"]
+      },
+      "EmotionModuleTS":{
+        "files":["$ComponentName$.test.tsx","$ComponentName$.tsx","index.ts","styles.ts","utils.ts","utils.test.ts"]
+      }
+  }

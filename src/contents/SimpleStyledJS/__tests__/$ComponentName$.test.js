@@ -3,7 +3,10 @@ import { shallow } from "enzyme";
 import React from 'react';
 describe("$ComponentName$", () => {
   it("should render correctly", () => {
-    let $ComponentName$Snapshot = shallow(<$ComponentName$/>);
-    expect($ComponentName$Snapshot).toMatchSnapshot();
+   /*
+   Fill in component's tests here.
+   A basic failing test case is generated.
+   */
+  expect(true).toBeFalsy();
   });
 });`;

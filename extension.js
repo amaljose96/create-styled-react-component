@@ -14,12 +14,15 @@ function activate(context) {
 		if(event && event.path){
 			createComponent.createComponentFromMenu(event.path);
 		}
-		else{
-			createComponent.createComponentFromCommand();
+	});
+	let quickCreateComponentSubscription = vscode.commands.registerCommand('create-styled-react-component.quickCreateDefaultTemplateComponent',function(event){
+		if(event && event.path){
+			createComponent.createComponentWithDefaultTemplate(event.path);
 		}
 	});
 	
 	context.subscriptions.push(createComponentSubscription)
+	context.subscriptions.push(quickCreateComponentSubscription)
 }
 exports.activate = activate;
 
